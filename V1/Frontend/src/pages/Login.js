@@ -22,7 +22,7 @@ function Login() {
 
   const authCheck = () => {
     setTimeout(() => {
-      fetch("http://localhost:4000/api/login")
+      fetch("https://servers-beit.onrender.com/api/login")
         .then((response) => response.json())
         .then((data) => {
           notify();
@@ -44,13 +44,13 @@ function Login() {
       toast.error("Please enter both email and password to login.");
       return;
     }
-    fetch("http://localhost:4000/api/login", {
+    fetch("https://servers-beit.onrender.com/api/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(form),
-      credentials: "include", 
+      credentials: "include",
     })
       .then((response) => {
         if (!response.ok) {
@@ -58,23 +58,23 @@ function Login() {
         }
         notify();
         console.log("User logged in successfully.");
-        authCheck(); 
+        authCheck();
       })
       .catch((error) => {
         console.error("Login error:", error.message);
         toast.error("Wrong credentials, Try again.");
       });
-      
+
   };
 
-  
+
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
-  
+
   return (
     <>
       <ToastContainer />

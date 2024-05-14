@@ -58,7 +58,7 @@ const Dropdown = () => {
   useEffect(() => {
     const fetchParties = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/parties");
+        const response = await axios.get("https://servers-beit.onrender.com/api/parties");
         setPartyOptions(response.data.map((party) => party.name));
       } catch (error) {
         console.error("Error fetching party data:", error);
@@ -68,7 +68,7 @@ const Dropdown = () => {
 
     const fetchQualityOptions = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/qualities");
+        const response = await axios.get("https://servers-beit.onrender.com/api/qualities");
         setQualityOptions(response.data.map((quality) => quality.name));
       } catch (error) {
         console.error("Error fetching quality data:", error);
@@ -115,7 +115,7 @@ const Dropdown = () => {
         return;
       }
       const response = await axios.post(
-        "http://localhost:4000/api/product/add",
+        "https://servers-beit.onrender.com/api/product/add",
         {
           selectedOption: selectedParty, // Change selectedParty to selectedOption
           quantity: selectedQualities, // Add quantities field with selectedQualities array

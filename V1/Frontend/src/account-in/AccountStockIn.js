@@ -16,7 +16,7 @@ const Dropdown = () => {
   const [meter, setMeter] = useState("");
   const [roll, setRoll] = useState("");
   const [lotNumber, setLotNumber] = useState("");
- 
+
 
   const options = ["Rajneesh Rana", "Liza Ahuja", "Nitish Kumar"];
   const toggleDropdown = () => {
@@ -28,51 +28,51 @@ const Dropdown = () => {
     setIsOpen(false);
   };
 
-const notify = () => toast("Data Saved!");
-const handleSubmit = async () => {
-  try {
-    if (
-      !selectedOption ||
-      !challanNumber ||
-      !quantity ||
-      !kg ||
-      !meter ||
-      !roll
-    ) {
-      toast.error("Please fill in all fields.");
-      return; 
-    }
-    const response = await axios.post(
-      "http://localhost:4000/api/product/add",
-      {
-        selectedOption,
-        challanNumber,
-        quantity,
-        kg,
-        meter,
-        roll,
-      },
-      {
-        withCredentials: true,
+  const notify = () => toast("Data Saved!");
+  const handleSubmit = async () => {
+    try {
+      if (
+        !selectedOption ||
+        !challanNumber ||
+        !quantity ||
+        !kg ||
+        !meter ||
+        !roll
+      ) {
+        toast.error("Please fill in all fields.");
+        return;
       }
-    );
+      const response = await axios.post(
+        "https://servers-beit.onrender.com/api/product/add",
+        {
+          selectedOption,
+          challanNumber,
+          quantity,
+          kg,
+          meter,
+          roll,
+        },
+        {
+          withCredentials: true,
+        }
+      );
 
-    console.log(response);
-    notify();
-    console.log("Data saved successfully:", response.data);
+      console.log(response);
+      notify();
+      console.log("Data saved successfully:", response.data);
 
 
-    setSelectedOption("");
-    setChallanNumber("");
-    setQuantity("");
-    setKg("");
-    setMeter("");
-    setRoll("");
-  } catch (error) {
-    console.error("Error saving data:", error);
-    toast.error("Error saving data. Please try again later.");
-  }
-};
+      setSelectedOption("");
+      setChallanNumber("");
+      setQuantity("");
+      setKg("");
+      setMeter("");
+      setRoll("");
+    } catch (error) {
+      console.error("Error saving data:", error);
+      toast.error("Error saving data. Please try again later.");
+    }
+  };
 
   // const dataToShow = submittedData.filter(dataItem => dataItem.selectedOption !== selectedOption);
 

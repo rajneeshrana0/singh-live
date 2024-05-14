@@ -10,7 +10,7 @@ function Modal({ isOpen, onClose, data }) {
   const handleSubmit = async (values) => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/account/add",
+        "https://servers-beit.onrender.com/api/account/add",
         {
           ...values,
           selectedOption: data.selectedOption,

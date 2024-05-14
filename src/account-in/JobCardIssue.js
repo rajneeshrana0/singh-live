@@ -10,7 +10,7 @@ function JobCardIssue() {
 
   const checkAdminRole = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/login", {
+      const response = await axios.get("https://servers-beit.onrender.com/api/login", {
         withCredentials: true,
       });
       // console.log("Login response data:", response.data);
@@ -27,7 +27,7 @@ function JobCardIssue() {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/product/all",
+        "https://servers-beit.onrender.com/api/product/all",
         {
           withCredentials: true,
         }
@@ -51,7 +51,7 @@ function JobCardIssue() {
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:4000/api/delete/${id}`,
+        `https://servers-beit.onrender.com/api/delete/${id}`,
         {
           withCredentials: true,
         }
@@ -68,7 +68,7 @@ function JobCardIssue() {
     console.log(id);
     try {
       const response = await axios.put(
-        `http://localhost:4000/api/product/update/${id}`,
+        `https://servers-beit.onrender.com/api/product/update/${id}`,
         data,
         {
           withCredentials: true,
@@ -102,7 +102,7 @@ function JobCardIssue() {
           <div className="text-title font-bold">
             Accounts Stock IN Table <br /> Total:7
           </div>
-          
+
 
           <div className="flex mt-3 items-center bg-backgrnd justify-center mr-6 h-[35px] overflow-hidden rounded-full">
             <div>
@@ -222,11 +222,10 @@ function JobCardIssue() {
           <li
             key={index}
             onClick={() => paginate(index + 1)}
-            className={`px-3 py-1 mx-1 cursor-pointer ${
-              currentPage === index + 1
+            className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                 ? "bg-darkgray text-white hover:bg-white hover:text-darkgray hover:border-darkgray hover:border-2 rounded-md hover:rounded-md "
                 : "bg-gray-300"
-            }`}
+              }`}
           >
             {index + 1}
           </li>

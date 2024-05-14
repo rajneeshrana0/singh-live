@@ -15,7 +15,7 @@ function SideMenu() {
     try {
       // Fetch user role using stored JWT token
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:4000/api/login", {
+      const response = await axios.get("https://servers-beit.onrender.com/api/login", {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -118,15 +118,15 @@ function SideMenu() {
           <div className="flex items-center gap-2 bg-foooter_bg p-4 hover:bg-gray-50">
             <div className="font-semibold font-footer text-[14px]">
               <div className="">
-              <p className="text-xs ">
-                <strong className="block ml-6 ">
-                  {localStorageData.firstName + " " + localStorageData.lastName}
-                </strong>
+                <p className="text-xs ">
+                  <strong className="block ml-6 ">
+                    {localStorageData.firstName + " " + localStorageData.lastName}
+                  </strong>
 
-                <span className="text-footer_red ml-12">
-                 View Profile
+                  <span className="text-footer_red ml-12">
+                    View Profile
                   </span>
-              </p>
+                </p>
               </div>
             </div>
 

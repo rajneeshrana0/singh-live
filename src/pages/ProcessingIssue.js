@@ -19,7 +19,7 @@ const ProcessingIssue = () => {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/purchase/getFullProcessData",
+        "https://servers-beit.onrender.com/api/purchase/getFullProcessData",
         { withCredentials: true }
       );
 
@@ -59,7 +59,7 @@ const ProcessingIssue = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/sales/add",
+        "https://servers-beit.onrender.com/api/sales/add",
         {
           lotNumber: selectedLot,
           status: completed ? "completed" : "rejected",
@@ -96,8 +96,8 @@ const ProcessingIssue = () => {
   };
 
   const filteredData = submittedData.filter((dataItem) =>
-    dataItem.selectedOption.toLowerCase().includes(searchQuery.toLowerCase())||
-    dataItem.challanNumber.toLowerCase().includes(searchQuery.toLowerCase())||
+    dataItem.selectedOption.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    dataItem.challanNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
     dataItem.lotNumber.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -313,11 +313,10 @@ const ProcessingIssue = () => {
               <li
                 key={index}
                 onClick={() => paginate(index + 1)}
-                className={`px-3 py-1 mx-1 cursor-pointer ${
-                  currentPage === index + 1
+                className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                     ? "bg-darkgray text-white hover:bg-white hover:text-darkgray hover:border-darkgray outline rounded-md hover:rounded-md "
                     : "bg-gray-300"
-                }`}
+                  }`}
               >
                 {index + 1}
               </li>

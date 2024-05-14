@@ -5,12 +5,12 @@ function DispatchStockTable() {
   const [submittedData, setSubmittedData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(5); 
+  const [itemsPerPage] = useState(5);
 
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/store/all",
+        "https://servers-beit.onrender.com/api/store/all",
         {
           withCredentials: true,
         }
@@ -130,11 +130,10 @@ function DispatchStockTable() {
             <li
               key={index}
               onClick={() => paginate(index + 1)}
-              className={`px-3 py-1 mx-1 cursor-pointer ${
-                currentPage === index + 1
+              className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                   ? "bg-blue-500 text-white"
                   : "bg-gray-300"
-              }`}
+                }`}
             >
               {index + 1}
             </li>

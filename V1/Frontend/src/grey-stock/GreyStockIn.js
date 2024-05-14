@@ -8,11 +8,11 @@ function GreyStockIn() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(5); 
+  const [itemsPerPage] = useState(5);
 
   const fetchSubmittedData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/product/all", {
+      const response = await axios.get("https://servers-beit.onrender.com/api/product/all", {
         withCredentials: true,
       });
       setSubmittedData(response.data);
@@ -38,11 +38,11 @@ function GreyStockIn() {
     dataItem.selectedOption.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
 
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="flex flex-col items-center">
@@ -120,11 +120,10 @@ function GreyStockIn() {
               <li
                 key={index}
                 onClick={() => paginate(index + 1)}
-                className={`px-3 py-1 mx-1 cursor-pointer ${
-                  currentPage === index + 1
+                className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                     ? "bg-blue-500 text-white"
                     : "bg-gray-300"
-                }`}
+                  }`}
               >
                 {index + 1}
               </li>

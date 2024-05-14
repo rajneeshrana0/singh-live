@@ -10,7 +10,7 @@ function ProcessingTable() {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/sales/data/finish/reject",
+        "https://servers-beit.onrender.com/api/sales/data/finish/reject",
         {
           withCredentials: true,
         }
@@ -32,9 +32,9 @@ function ProcessingTable() {
   };
 
   const filteredData = submittedData.filter((dataItem) =>
-    dataItem.selectedOption.toLowerCase().includes(searchQuery.toLowerCase())||
-    dataItem.lotNumber.toLowerCase().includes(searchQuery.toLowerCase())||
-    dataItem.challanNumber.toLowerCase().includes(searchQuery.toLowerCase())||
+    dataItem.selectedOption.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    dataItem.lotNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    dataItem.challanNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
     dataItem.completionDate.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -47,8 +47,8 @@ function ProcessingTable() {
   return (
     <div className="flex flex-col items-center">
       <div className="w-full mt-6 bg-white border-nav border-2 rounded-lg">
-      <div className="lg:flex ml-4 mt-4 justify-between items-center ">
-      <div className="text-title font-semibold">
+        <div className="lg:flex ml-4 mt-4 justify-between items-center ">
+          <div className="text-title font-semibold">
             Finish Reject Table <br />
           </div>
           <div className="flex mt-3 lg:mt-0 items-center bg-backgrnd justify-center mr-6 h-[35px] overflow-hidden rounded-full">
@@ -60,14 +60,14 @@ function ProcessingTable() {
               />
             </div>
             <div className="h-[25px] ml-6 border-total border-[1px]"></div>
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search by Party Name..."
-          className="mb-4 mt-3 lg:w-[300px]  w-[350px] bg-backgrnd placeholder:text-center border border-none placeholder:font-login placeholder:text-[14px] placeholder:bg-backgrnd placeholder:text-total font-medium "
-        />
-        </div>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search by Party Name..."
+              className="mb-4 mt-3 lg:w-[300px]  w-[350px] bg-backgrnd placeholder:text-center border border-none placeholder:font-login placeholder:text-[14px] placeholder:bg-backgrnd placeholder:text-total font-medium "
+            />
+          </div>
         </div>
         {filteredData.length === 0 ? (
           <div className="text-center">
@@ -156,11 +156,10 @@ function ProcessingTable() {
                 <li
                   key={index}
                   onClick={() => paginate(index + 1)}
-                  className={`px-3 py-1 mx-1 cursor-pointer ${
-                    currentPage === index + 1
+                  className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                       ? "bg-darkgray text-white hover:bg-white hover:text-darkgray hover:border-darkgray outline rounded-md hover:rounded-md "
                       : "bg-gray-300"
-                  }`}
+                    }`}
                 >
                   {index + 1}
                 </li>
@@ -174,4 +173,4 @@ function ProcessingTable() {
 }
 
 export default ProcessingTable;
- 
+

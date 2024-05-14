@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiConnector = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:4000/api', // Use environment variable or fallback to localhost
+  baseURL: process.env.REACT_APP_API_BASE_URL || 'https://servers-beit.onrender.com/api', // Use environment variable or fallback to localhost
   timeout: 1000,
   headers: { 'Content-Type': 'application/json' },
   withCredentials: true,

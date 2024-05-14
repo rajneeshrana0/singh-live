@@ -12,7 +12,7 @@ function Modal({ isOpen, onClose, data }) {
   useEffect(() => {
     // Fetch data from the API
     axios
-      .get("http://localhost:4000/api/qualities")
+      .get("https://servers-beit.onrender.com/api/qualities")
       .then((response) => {
         setQualities(response.data);
         setSelectedQuantity(data.quantity); // Set the initial selected quantity
@@ -41,7 +41,7 @@ function Modal({ isOpen, onClose, data }) {
   const handleSubmit = async (values) => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/purchase/add",
+        "https://servers-beit.onrender.com/api/purchase/add",
         {
           ...values,
           selectedOption: data.selectedOption,
@@ -214,7 +214,7 @@ function Modal({ isOpen, onClose, data }) {
               >
                 Select Quality:
               </label>
-              
+
               <Field
                 as="select"
                 id="quantity"

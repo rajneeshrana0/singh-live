@@ -24,28 +24,28 @@ export default function Header() {
   const authContext = useContext(AuthContext);
   const localStorageData = JSON.parse(localStorage.getItem("user"));
 
-const handleSignOut = async () => {
-  try {
-    const response = await fetch("http://localhost:4000/api/logout", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    });
-    if (response.ok) {
-      toast("Logout Successful!", { autoClose: 2000 }); 
-      setTimeout(() => {
-        localStorage.removeItem("user");
-        authContext.signout();
-      }, 2000);
-    } else {
-      console.error("Logout failed:", response.statusText);
+  const handleSignOut = async () => {
+    try {
+      const response = await fetch("https://servers-beit.onrender.com/api/logout", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+      if (response.ok) {
+        toast("Logout Successful!", { autoClose: 2000 });
+        setTimeout(() => {
+          localStorage.removeItem("user");
+          authContext.signout();
+        }, 2000);
+      } else {
+        console.error("Logout failed:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error during logout:", error);
     }
-  } catch (error) {
-    console.error("Error during logout:", error);
-  }
-};
+  };
 
 
 

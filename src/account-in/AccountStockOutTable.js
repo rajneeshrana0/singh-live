@@ -10,7 +10,7 @@ function AccountStockOutTable() {
 
   const checkAdminRole = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/login", {
+      const response = await axios.get("https://servers-beit.onrender.com/api/login", {
         withCredentials: true,
       });
       // console.log("Login response data:", response.data);
@@ -27,7 +27,7 @@ function AccountStockOutTable() {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/account/all",
+        "https://servers-beit.onrender.com/api/account/all",
         {
           withCredentials: true,
         }
@@ -48,7 +48,7 @@ function AccountStockOutTable() {
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:4000/api/delete/${id}`,
+        `https://servers-beit.onrender.com/api/delete/${id}`,
         {
           withCredentials: true,
         }
@@ -64,7 +64,7 @@ function AccountStockOutTable() {
   const handleUpdate = async (id, data) => {
     try {
       const response = await axios.put(
-        `http://localhost:4000/api/update/${id}`,
+        `https://servers-beit.onrender.com/api/update/${id}`,
         {
           withCredentials: true,
         }
@@ -78,7 +78,7 @@ function AccountStockOutTable() {
 
   const filteredData = submittedData.filter((dataItem) =>
     dataItem.selectedOption.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  dataItem.challanNumber.toLowerCase().includes(searchQuery.toLowerCase())
+    dataItem.challanNumber.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -212,11 +212,10 @@ function AccountStockOutTable() {
             <li
               key={index}
               onClick={() => paginate(index + 1)}
-              className={`px-3 py-1 mx-1 cursor-pointer ${
-                currentPage === index + 1
+              className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                   ? "bg-darkgray text-white hover:bg-white hover:text-darkgray hover:border-darkgray hover:border-2 rounded-md hover:rounded-md "
                   : "bg-gray-300"
-              }`}
+                }`}
             >
               {index + 1}
             </li>

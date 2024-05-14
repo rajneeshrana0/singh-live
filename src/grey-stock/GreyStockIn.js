@@ -14,7 +14,7 @@ function GreyStockIn() {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/product/all",
+        "https://servers-beit.onrender.com/api/product/all",
         {
           withCredentials: true,
         }
@@ -25,8 +25,8 @@ function GreyStockIn() {
       console.error("Error fetching submitted data:", error);
     }
   };
-  
-  
+
+
 
   useEffect(() => {
     fetchSubmittedData();
@@ -49,7 +49,7 @@ function GreyStockIn() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredData
-  .slice(indexOfFirstItem, indexOfLastItem);
+    .slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -150,11 +150,10 @@ function GreyStockIn() {
               <li
                 key={index}
                 onClick={() => paginate(index + 1)}
-                className={`px-3 py-1 mx-1 cursor-pointer ${
-                  currentPage === index + 1
+                className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                     ? "bg-darkgray text-white hover:bg-white hover:text-darkgray hover:border-darkgray outline hover:outline-2 rounded-md hover:rounded-md "
                     : "bg-gray-300"
-                }`}
+                  }`}
               >
                 {index + 1}
               </li>

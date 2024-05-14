@@ -11,7 +11,7 @@ function DispatchStockTable() {
 
   const checkAdminRole = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/login", {
+      const response = await axios.get("https://servers-beit.onrender.com/api/login", {
         withCredentials: true,
       });
       // console.log("Login response data:", response.data); 
@@ -27,7 +27,7 @@ function DispatchStockTable() {
 
   const fetchSubmittedData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/store/all", {
+      const response = await axios.get("https://servers-beit.onrender.com/api/store/all", {
         withCredentials: true,
       });
       const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -43,10 +43,10 @@ function DispatchStockTable() {
   }, []);
 
 
-   // Handle Delete operation
-   const handleDelete = async (id) => {
+  // Handle Delete operation
+  const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:4000/api/delete/${id}`, {
+      const response = await axios.delete(`https://servers-beit.onrender.com/api/delete/${id}`, {
         withCredentials: true,
       });
       console.log("Delete response:", response.data);  // Log the response from the delete API
@@ -55,12 +55,12 @@ function DispatchStockTable() {
       console.error("Error deleting item:", error);
     }
   };
-  
+
 
   // Handle Update operation
   const handleUpdate = async (id, data) => {
     try {
-      const response = await axios.put(`http://localhost:4000/api/update/${id}`, data, {
+      const response = await axios.put(`https://servers-beit.onrender.com/api/update/${id}`, data, {
         withCredentials: true,
       });
       console.log("Update response:", response.data);  // Log the response from the update API
@@ -71,9 +71,9 @@ function DispatchStockTable() {
   };
 
   const filteredData = submittedData.filter((dataItem) =>
-    dataItem.selectedOption.toLowerCase().includes(searchQuery.toLowerCase())||
-    dataItem.lotNumber.toLowerCase().includes(searchQuery.toLowerCase())||
-    dataItem.challanNumber.toLowerCase().includes(searchQuery.toLowerCase())||
+    dataItem.selectedOption.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    dataItem.lotNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    dataItem.challanNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
     dataItem.karigar.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -149,10 +149,10 @@ function DispatchStockTable() {
                     Karigar
                   </th>
                   {isAdmin &&
-    <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
-   Actions
-    </th>
-   }
+                    <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
+                      Actions
+                    </th>
+                  }
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-login font-header text-[16px] font-medium divide-gray-200">
@@ -208,11 +208,10 @@ function DispatchStockTable() {
             <li
               key={index}
               onClick={() => paginate(index + 1)}
-              className={`px-3 py-1 mx-1 cursor-pointer ${
-                currentPage === index + 1
+              className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                   ? "bg-darkgray text-white hover:bg-white hover:text-darkgray hover:border-darkgray outline hover:outline-2 rounded-md hover:rounded-md "
                   : "bg-gray-300"
-              }`}
+                }`}
             >
               {index + 1}
             </li>

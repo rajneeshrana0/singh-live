@@ -10,7 +10,7 @@ function ProcessingTable() {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/sales/data/full",
+        "https://servers-beit.onrender.com/api/sales/data/full",
         {
           withCredentials: true,
         }
@@ -32,9 +32,9 @@ function ProcessingTable() {
   };
 
   const filteredData = submittedData.filter((dataItem) =>
-    dataItem.selectedOption.toLowerCase().includes(searchQuery.toLowerCase())||
-    dataItem.lotNumber.toLowerCase().includes(searchQuery.toLowerCase())||
-    dataItem.completionDate.toLowerCase().includes(searchQuery.toLowerCase())||
+    dataItem.selectedOption.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    dataItem.lotNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    dataItem.completionDate.toLowerCase().includes(searchQuery.toLowerCase()) ||
     dataItem.challanNumber.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -154,11 +154,10 @@ function ProcessingTable() {
                 <li
                   key={index}
                   onClick={() => paginate(index + 1)}
-                  className={`px-3 py-1 mx-1 cursor-pointer ${
-                    currentPage === index + 1
+                  className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                       ? "bg-darkgray text-white hover:bg-white hover:text-darkgray hover:border-darkgray outline rounded-md hover:rounded-md "
                       : "bg-gray-300"
-                  }`}
+                    }`}
                 >
                   {index + 1}
                 </li>

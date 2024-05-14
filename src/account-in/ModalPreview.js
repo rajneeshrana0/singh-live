@@ -25,7 +25,7 @@ const Dropdown = () => {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/product/all",
+        "https://servers-beit.onrender.com/api/product/all",
         {
           withCredentials: true,
         }
@@ -41,7 +41,7 @@ const Dropdown = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/qualities")
+    fetch("https://servers-beit.onrender.com/api/qualities")
       .then((res) => {
         return res.json();
       })
@@ -76,7 +76,7 @@ const Dropdown = () => {
         return;
       }
       const response = await axios.post(
-        "http://localhost:4000/api/product/add",
+        "https://servers-beit.onrender.com/api/product/add",
         {
           selectedOption,
           challanNumber,
@@ -248,14 +248,14 @@ const Dropdown = () => {
           </div>
 
           <div className=" border-[1px] mt-8 overflow-hidden rounded-xl w-[615px] border-login">
-              <div className="ml-4 mt-4 text-[28px] font-login ">
-                Lot Number:- 
-              </div>
-              <div className="flex ml-4 mt-4 mb-4 text-[20px]">
-                <p>dummy text</p>
-              </div>
-              <div className="bg-darkgray h-4 w-full overflow-hidden "></div>
+            <div className="ml-4 mt-4 text-[28px] font-login ">
+              Lot Number:-
             </div>
+            <div className="flex ml-4 mt-4 mb-4 text-[20px]">
+              <p>dummy text</p>
+            </div>
+            <div className="bg-darkgray h-4 w-full overflow-hidden "></div>
+          </div>
 
           <div className="border-login border-[1px] rounded-xl overflow-hidden mt-8">
             <div className="mt-4">
@@ -320,7 +320,7 @@ const Dropdown = () => {
             </div>
           </div>
 
-         
+
 
           <div className="mt-4">
             <button

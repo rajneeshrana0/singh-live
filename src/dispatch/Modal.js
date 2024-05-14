@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { toast } from "react-toastify";
@@ -11,7 +11,7 @@ function Modal({ isOpen, onClose, data }) {
   useEffect(() => {
     // Fetch data from the API
     axios
-      .get("http://localhost:4000/api/qualities")
+      .get("https://servers-beit.onrender.com/api/qualities")
       .then((response) => {
         setQualities(response.data);
       })
@@ -38,7 +38,7 @@ function Modal({ isOpen, onClose, data }) {
   const handleSubmit = async (values) => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/store/add",
+        "https://servers-beit.onrender.com/api/store/add",
         {
           ...values,
           selectedOption: data.selectedOption,
@@ -80,7 +80,7 @@ function Modal({ isOpen, onClose, data }) {
 
               <div className="text-gray-700 font-semibold">
                 <span className="text-nav mr-2">Quality</span>
-                
+
                 <span className="text-nav">{data.quantity}</span>
               </div>
 
@@ -113,7 +113,7 @@ function Modal({ isOpen, onClose, data }) {
           </button>
         </div>
         <Formik
-          initialValues={{ kg: "", meter: "", roll: "", karigar: ''}}
+          initialValues={{ kg: "", meter: "", roll: "", karigar: '' }}
           validate={(values) => {
             const errors = {};
             if (!values.kg) {

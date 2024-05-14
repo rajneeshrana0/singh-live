@@ -14,7 +14,7 @@ function AccountStockOut() {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/purchase/all",
+        "https://servers-beit.onrender.com/api/purchase/all",
         {
           withCredentials: true,
         }
@@ -127,12 +127,12 @@ function AccountStockOut() {
                       </td>
                       <td className="px-6 py-2 whitespace-nowrap">
                         {/* <Link to={"/modal-prev"}> */}
-                          <button
-                            className="bg-darkgray hover:bg-white text-white hover:text-darkgray hover:border-darkgray outline hover:outline-2 font-semibold px-4 py-2 rounded-md"
-                            onClick={() => handleAddButtonClick(dataItem)}
-                          >
-                            Add
-                          </button>
+                        <button
+                          className="bg-darkgray hover:bg-white text-white hover:text-darkgray hover:border-darkgray outline hover:outline-2 font-semibold px-4 py-2 rounded-md"
+                          onClick={() => handleAddButtonClick(dataItem)}
+                        >
+                          Add
+                        </button>
                         {/* </Link> */}
                       </td>
                     </tr>
@@ -148,11 +148,10 @@ function AccountStockOut() {
               <li
                 key={index}
                 onClick={() => paginate(index + 1)}
-                className={`px-3 py-1 mx-1 cursor-pointer ${
-                  currentPage === index + 1
+                className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                     ? "bg-darkgray text-white hover:bg-white hover:text-darkgray hover:border-darkgray outline hover:outline-2 rounded-md hover:rounded-md "
                     : "bg-gray-300 "
-                }`}
+                  }`}
               >
                 {index + 1}
               </li>

@@ -22,7 +22,7 @@ const AddUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4000/api/register', formData);
+      const response = await axios.post('https://servers-beit.onrender.com/api/register', formData);
       toast.success(`User registered successfully  role: ${formData.check}`); // Accessing check instead of role
       console.log('User registered successfully:', response.data);
     } catch (error) {
@@ -40,35 +40,35 @@ const AddUser = () => {
           <div className="mb-4 mt-6 border-2 rounded-lg h-[140px] overflow-hidden shadow-md shadow-darkgray ">
             <label htmlFor="firstName" className="ml-4 mt-2 block text-gray-700">First Name:</label>
             <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required className="w-[300px] ml-4 border rounded-md px-3 py-2 mt-2 focus:outline-none focus:ring-darkgray focus:border-darkgray placeholder:font-login "
-            placeholder="Your Answer" />
+              placeholder="Your Answer" />
             <div className="bg-darkgray h-4 w-full mt-2"></div>
           </div>
 
           <div className="mb-4 mt-6 border-2 rounded-lg h-[140px] overflow-hidden shadow-md shadow-darkgray ">
             <label htmlFor="lastName" className="block ml-4 mt-2 text-gray-700">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className="w-[300px] ml-4 border rounded-md px-3 py-2 mt-2 focus:outline-none focus:ring-darkgray focus:border-darkgray placeholder:font-login" 
-            placeholder="Your Answer" />
+            <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className="w-[300px] ml-4 border rounded-md px-3 py-2 mt-2 focus:outline-none focus:ring-darkgray focus:border-darkgray placeholder:font-login"
+              placeholder="Your Answer" />
             <div className="bg-darkgray h-4 w-full mt-2"></div>
           </div>
 
           <div className="mb-4 mt-6 border-2 rounded-lg h-[140px] overflow-hidden shadow-md shadow-darkgray ">
             <label htmlFor="email" className="block ml-4 mt-2 text-gray-700">Email:</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-[300px] ml-4 border rounded-md px-3 py-2 mt-2 focus:outline-none focus:ring-darkgray focus:border-darkgray placeholder:font-login" 
-            placeholder="Your Answer" />
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-[300px] ml-4 border rounded-md px-3 py-2 mt-2 focus:outline-none focus:ring-darkgray focus:border-darkgray placeholder:font-login"
+              placeholder="Your Answer" />
             <div className="bg-darkgray h-4 w-full mt-2"></div>
           </div>
 
           <div className="mb-4 mt-6 border-2 rounded-lg h-[140px] overflow-hidden shadow-md shadow-darkgray ">
             <label htmlFor="password" className="block ml-4 mt-2 text-gray-700">Password:</label>
-            <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required className="w-[300px] ml-4 border rounded-md px-3 py-2 mt-2 focus:outline-none focus:ring-darkgray focus:border-darkgray placeholder:font-login" 
-            placeholder="Your Answer" />
+            <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required className="w-[300px] ml-4 border rounded-md px-3 py-2 mt-2 focus:outline-none focus:ring-darkgray focus:border-darkgray placeholder:font-login"
+              placeholder="Your Answer" />
             <div className="bg-darkgray h-4 w-full mt-2"></div>
           </div>
 
           <div className="mb-4 mt-6 border-2 rounded-lg h-[140px] overflow-hidden shadow-md shadow-darkgray ">
             <label htmlFor="phoneNumber" className="block ml-4 mt-2 text-gray-700">Phone Number:</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required className="w-[300px] ml-4 border rounded-md px-3 py-2 mt-2 focus:outline-none focus:ring-darkgray focus:border-darkgray placeholder:font-login" 
-            placeholder="Your Answer" />
+            <input type="tel" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required className="w-[300px] ml-4 border rounded-md px-3 py-2 mt-2 focus:outline-none focus:ring-darkgray focus:border-darkgray placeholder:font-login"
+              placeholder="Your Answer" />
             <div className="bg-darkgray h-4 w-full mt-2"></div>
           </div>
 

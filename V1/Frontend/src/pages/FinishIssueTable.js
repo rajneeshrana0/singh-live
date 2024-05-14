@@ -9,7 +9,7 @@ function FinishIssueTable() {
 
   const fetchSubmittedData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/sales/data/finish", {
+      const response = await axios.get("https://servers-beit.onrender.com/api/sales/data/finish", {
         withCredentials: true,
       });
       console.log(response);
@@ -137,11 +137,10 @@ function FinishIssueTable() {
             <li
               key={index}
               onClick={() => paginate(index + 1)}
-              className={`px-3 py-1 mx-1 cursor-pointer ${
-                currentPage === index + 1
+              className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                   ? "bg-blue-500 text-white"
                   : "bg-gray-300"
-              }`}
+                }`}
             >
               {index + 1}
             </li>

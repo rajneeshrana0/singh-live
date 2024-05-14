@@ -10,7 +10,7 @@ function Modal({ isOpen, onClose, data }) {
   const handleSubmit = async (values) => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/purchase/add",
+        "https://servers-beit.onrender.com/api/purchase/add",
         {
           ...values,
           selectedOption: data.selectedOption,
@@ -23,7 +23,7 @@ function Modal({ isOpen, onClose, data }) {
       );
       console.log("Form data submitted:", response.data);
       toast.success("Grey successfully added");
-      onClose(); 
+      onClose();
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("Error adding Grey");

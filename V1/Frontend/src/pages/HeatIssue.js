@@ -19,11 +19,11 @@ const HeatIssue = () => {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/purchase/getHalfProcessData",
+        "https://servers-beit.onrender.com/api/purchase/getHalfProcessData",
         { withCredentials: true }
       );
 
-    
+
       const pendingData = response.data.filter(
         (item) => item.status === "pending"
       );
@@ -59,7 +59,7 @@ const HeatIssue = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/sales/add",
+        "https://servers-beit.onrender.com/api/sales/add",
         { lotNumber: selectedLot },
         { withCredentials: true }
       );
@@ -270,11 +270,10 @@ const HeatIssue = () => {
             <li
               key={index}
               onClick={() => paginate(index + 1)}
-              className={`px-3 py-1 mx-1 cursor-pointer ${
-                currentPage === index + 1
+              className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                   ? "bg-blue-500 text-white"
                   : "bg-gray-300"
-              }`}
+                }`}
             >
               {index + 1}
             </li>

@@ -5,13 +5,13 @@ function GreyTable() {
   const [submittedData, setSubmittedData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(5); 
+  const [itemsPerPage] = useState(5);
   const [isAdmin, setIsAdmin] = useState(false); // Assuming you receive the user's role from backend
-  
+
 
   const checkAdminRole = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/login", {
+      const response = await axios.get("https://servers-beit.onrender.com/api/login", {
         withCredentials: true,
       });
       // console.log("Login response data:", response.data); 
@@ -29,7 +29,7 @@ function GreyTable() {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/purchase/all",
+        "https://servers-beit.onrender.com/api/purchase/all",
         {
           withCredentials: true,
         }
@@ -47,33 +47,33 @@ function GreyTable() {
   }, []);
 
 
-     // Handle Delete operation
-     const handleDelete = async (id) => {
-      try {
-        const response = await axios.delete(`http://localhost:4000/api/delete/${id}`, {
-          withCredentials: true,
-        });
-        console.log("Delete response:", response.data);  // Log the response from the delete API
-        setSubmittedData(submittedData.filter(item => item.id !== id));  // Update the UI by removing the deleted item
-      } catch (error) {
-        console.error("Error deleting item:", error);
-      }
-    };
-    
-  
-    // Handle Update operation
-    const handleUpdate = async (id, data) => {
-      try {
-        const response = await axios.put(`http://localhost:4000/api/update/${id}`, data, {
-          withCredentials: true,
-        });
-        console.log("Update response:", response.data);  // Log the response from the update API
-        fetchSubmittedData();  // Re-fetch data to update the UI
-      } catch (error) {
-        console.error("Error updating item:", error);
-      }
-    };
-  
+  // Handle Delete operation
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.delete(`https://servers-beit.onrender.com/api/delete/${id}`, {
+        withCredentials: true,
+      });
+      console.log("Delete response:", response.data);  // Log the response from the delete API
+      setSubmittedData(submittedData.filter(item => item.id !== id));  // Update the UI by removing the deleted item
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
+
+
+  // Handle Update operation
+  const handleUpdate = async (id, data) => {
+    try {
+      const response = await axios.put(`https://servers-beit.onrender.com/api/update/${id}`, data, {
+        withCredentials: true,
+      });
+      console.log("Update response:", response.data);  // Log the response from the update API
+      fetchSubmittedData();  // Re-fetch data to update the UI
+    } catch (error) {
+      console.error("Error updating item:", error);
+    }
+  };
+
 
   const filteredData = submittedData.filter((dataItem) =>
     dataItem.selectedOption.toLowerCase().includes(searchQuery.toLowerCase())
@@ -89,7 +89,7 @@ function GreyTable() {
   return (
     <div className="flex flex-col items-center">
       <div className="w-full mt-6 bg-white border-nav border-2 rounded-lg">
-      <div className="lg:flex ml-4 mt-4 justify-between items-center ">
+        <div className="lg:flex ml-4 mt-4 justify-between items-center ">
           <div className="text-title font-bold">
             Grey Stock OUT Table <br /> Total:7
           </div>
@@ -116,7 +116,7 @@ function GreyTable() {
 
 
 
-         {filteredData.length === 0 ? (
+        {filteredData.length === 0 ? (
           <div className="text-center">
             <p
               className="text-gray-800 font-semibold text-lg mt-3 lg:mt-3"
@@ -126,78 +126,78 @@ function GreyTable() {
             </p>
           </div>
         ) : (
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y mt-6 divide-gray-200 rounded-lg overflow-hidden">
-            <thead className="bg-header text-header-font  font-header">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
-                  Party Name
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
-                  Challan Number
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
-                  Quality
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
-                  Shade
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
-                  Kg
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
-                  Meter
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
-                  Roll
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
-                  Process
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
-                  Lot Number
-                </th>
-                {isAdmin &&
-    <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
-   Actions
-    </th>
-   }
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y mt-6 divide-gray-200 rounded-lg overflow-hidden">
+              <thead className="bg-header text-header-font  font-header">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
+                    Party Name
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
+                    Challan Number
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
+                    Quality
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
+                    Shade
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
+                    Kg
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
+                    Meter
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
+                    Roll
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
+                    Process
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
+                    Lot Number
+                  </th>
+                  {isAdmin &&
+                    <th className="px-6 py-3 text-left text-xs font-semibold text-[14px] uppercase">
+                      Actions
+                    </th>
+                  }
 
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-login font-header text-[16px] font-medium divide-gray-200">
-              {currentItems.map((dataItem, index) => (
-                <tr
-                  key={index}
-                  className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
-                >
-                  <td className="px-6 py-6 whitespace-nowrap">
-                    {dataItem.selectedOption}
-                  </td>
-                  <td className="px-6 py-6 whitespace-nowrap">
-                    {dataItem.challanNumber}
-                  </td>
-                  <td className="px-6 py-6 whitespace-nowrap">
-                    {dataItem.quantity}
-                  </td>
-                  <td className="px-6 py-6 whitespace-nowrap">
-                    {dataItem.shade}
-                  </td>
-                  <td className="px-6 py-6 whitespace-nowrap">
-                    {dataItem.kg} KG </td>
-                  <td className="px-6 py-6 whitespace-nowrap">
-                    {dataItem.meter} M
-                  </td>
-                  <td className="px-6 py-6 whitespace-nowrap">
-                    {dataItem.roll}
-                  </td>
-                  <td className="px-6 py-6 whitespace-nowrap">
-                    {dataItem.processTypes.join(", ")}
-                  </td>
-                  <td className="px-6 py-6 whitespace-nowrap">
-                    {dataItem.lotNumber}
-                  </td>
-                  {isAdmin && (
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-login font-header text-[16px] font-medium divide-gray-200">
+                {currentItems.map((dataItem, index) => (
+                  <tr
+                    key={index}
+                    className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
+                  >
+                    <td className="px-6 py-6 whitespace-nowrap">
+                      {dataItem.selectedOption}
+                    </td>
+                    <td className="px-6 py-6 whitespace-nowrap">
+                      {dataItem.challanNumber}
+                    </td>
+                    <td className="px-6 py-6 whitespace-nowrap">
+                      {dataItem.quantity}
+                    </td>
+                    <td className="px-6 py-6 whitespace-nowrap">
+                      {dataItem.shade}
+                    </td>
+                    <td className="px-6 py-6 whitespace-nowrap">
+                      {dataItem.kg} KG </td>
+                    <td className="px-6 py-6 whitespace-nowrap">
+                      {dataItem.meter} M
+                    </td>
+                    <td className="px-6 py-6 whitespace-nowrap">
+                      {dataItem.roll}
+                    </td>
+                    <td className="px-6 py-6 whitespace-nowrap">
+                      {dataItem.processTypes.join(", ")}
+                    </td>
+                    <td className="px-6 py-6 whitespace-nowrap">
+                      {dataItem.lotNumber}
+                    </td>
+                    {isAdmin && (
                       <td className="flex mt-2">
                         <button onClick={() => handleUpdate(dataItem.id, dataItem)} className="mr-2 bg-darkgray hover:outline hover:bg-white text-white hover:text-darkgray font-bold py-2 px-4 rounded">
                           Update
@@ -207,11 +207,11 @@ function GreyTable() {
                         </button>
                       </td>
                     )}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         <ul className="flex justify-center my-4">
           {Array.from({
@@ -220,11 +220,10 @@ function GreyTable() {
             <li
               key={index}
               onClick={() => paginate(index + 1)}
-              className={`px-3 py-1 mx-1 cursor-pointer ${
-                currentPage === index + 1
+              className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                   ? "bg-darkgray text-white hover:bg-white hover:text-darkgray hover:border-darkgray outline hover:outline-2 rounded-md hover:rounded-md "
                   : "bg-gray-300"
-              }`}
+                }`}
             >
               {index + 1}
             </li>

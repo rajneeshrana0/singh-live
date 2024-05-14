@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { toast } from "react-toastify";
@@ -11,7 +11,7 @@ function Modal({ isOpen, onClose, data }) {
   useEffect(() => {
     // Fetch data from the API
     axios
-      .get("http://localhost:4000/api/qualities")
+      .get("https://servers-beit.onrender.com/api/qualities")
       .then((response) => {
         setQualities(response.data);
       })
@@ -38,7 +38,7 @@ function Modal({ isOpen, onClose, data }) {
   const handleSubmit = async (values) => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/account/add",
+        "https://servers-beit.onrender.com/api/account/add",
         {
           ...values,
           selectedOption: data.selectedOption,
@@ -112,7 +112,7 @@ function Modal({ isOpen, onClose, data }) {
               </div>
 
 
-              
+
               <div className="text-gray-700 font-semibold">
                 <span className="text-gray-900 mr-2">Lot Number:</span>
                 <span className="text-white">{data.lotNumber}</span>

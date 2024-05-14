@@ -25,7 +25,7 @@ const Dropdown = () => {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/product/all",
+        "https://servers-beit.onrender.com/api/product/all",
         {
           withCredentials: true,
         }
@@ -41,7 +41,7 @@ const Dropdown = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/qualities")
+    fetch("https://servers-beit.onrender.com/api/qualities")
       .then((res) => {
         return res.json();
       })
@@ -76,7 +76,7 @@ const Dropdown = () => {
         return;
       }
       const response = await axios.post(
-        "http://localhost:4000/api/product/add",
+        "https://servers-beit.onrender.com/api/product/add",
         {
           selectedOption,
           challanNumber,

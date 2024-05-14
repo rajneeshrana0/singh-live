@@ -21,7 +21,7 @@ function Register() {
 
   // Register User
   const registerUser = () => {
-    fetch("http://localhost:4000/api/register", {
+    fetch("https://servers-beit.onrender.com/api/register", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -31,7 +31,7 @@ function Register() {
       .then((result) => {
         alert("Successfully Registered, Now Login with your details");
         navigate('/login')
-        
+
       })
       .catch((err) => console.log(err));
   };

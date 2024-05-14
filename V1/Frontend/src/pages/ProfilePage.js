@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"; 
+import axios from "axios";
 
 const ProfilePage = () => {
-  const [user, setUser] = useState(null); 
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     // Fetch user data from the API
     const fetchUser = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/login");
-        setUser(response.data); 
+        const response = await axios.get("https://servers-beit.onrender.com/api/login");
+        setUser(response.data);
       } catch (error) {
         console.error("Error fetching user:", error);
       }
     };
 
-    fetchUser(); 
-  }, []); 
+    fetchUser();
+  }, []);
 
- 
+
   if (!user) {
     return <div>Loading...</div>;
   }
@@ -42,8 +42,8 @@ const ProfilePage = () => {
               type="text"
               id="name"
               className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-              value={user.firstName} 
-               
+              value={user.firstName}
+
             />
           </div>
           <div>
@@ -57,8 +57,8 @@ const ProfilePage = () => {
               type="email"
               id="email"
               className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-              value={user.email} 
-              readOnly 
+              value={user.email}
+              readOnly
             />
           </div>
           <div>

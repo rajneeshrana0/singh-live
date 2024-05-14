@@ -1,6 +1,4 @@
 // import { LockClosedIcon } from "@heroicons/react/20/solid";
-
-
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext";
@@ -17,8 +15,7 @@ function Login() {
   const authContext = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const url = process.env.REACT_APP_API_BASE_URL;
-  console.log(url)
+  URL = process.env.REACT_APP_API_BASE_URL;
 
 
   const handleInputChange = (e) => {
@@ -27,7 +24,7 @@ function Login() {
 
   const authCheck = () => {
     setTimeout(() => {
-      fetch(`URL/api/login`)
+      fetch("https://servers-beit.onrender.com/api/login")
         .then((response) => response.json())
         .then((data) => {
           notify();
@@ -72,7 +69,7 @@ function Login() {
       toast.error("Please enter both email and password to login.");
       return;
     }
-    fetch(`{URL}api/login`, {
+    fetch("https://servers-beit.onrender.com/api/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

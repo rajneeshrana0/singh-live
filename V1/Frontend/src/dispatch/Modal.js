@@ -10,7 +10,7 @@ function Modal({ isOpen, onClose, data }) {
   const handleSubmit = async (values) => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/store/add",
+        "https://servers-beit.onrender.com/api/store/add",
         {
           ...values,
           selectedOption: data.selectedOption,
@@ -80,7 +80,7 @@ function Modal({ isOpen, onClose, data }) {
           </button>
         </div>
         <Formik
-          initialValues={{ kg: "", meter: "", roll: "", karigar: ''}}
+          initialValues={{ kg: "", meter: "", roll: "", karigar: '' }}
           validate={(values) => {
             const errors = {};
             if (!values.kg) {

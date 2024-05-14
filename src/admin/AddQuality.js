@@ -17,14 +17,14 @@ const QualityTable = () => {
   }, []);
 
   const fetchQualities = () => {
-    fetch("http://localhost:4000/api/qualities")
+    fetch("https://servers-beit.onrender.com/api/qualities")
       .then((response) => response.json())
       .then((data) => setQualities(data))
       .catch((error) => console.error("Error fetching qualities:", error));
   };
 
   const handleAddQuality = () => {
-    fetch("http://localhost:4000/api/qualities", {
+    fetch("https://servers-beit.onrender.com/api/qualities", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +57,7 @@ const QualityTable = () => {
   };
 
   const handleUpdateQuality = () => {
-    fetch(`http://localhost:4000/api/qualities/${editQualityId}`, {
+    fetch(`https://servers-beit.onrender.com/api/qualities/${editQualityId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -94,7 +94,7 @@ const QualityTable = () => {
   };
 
   const handleConfirmDelete = () => {
-    fetch(`http://localhost:4000/api/qualities/${deleteQualityId}`, {
+    fetch(`https://servers-beit.onrender.com/api/qualities/${deleteQualityId}`, {
       method: "DELETE",
     })
       .then((response) => {

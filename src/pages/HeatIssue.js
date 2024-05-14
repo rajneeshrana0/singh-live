@@ -19,7 +19,7 @@ const HeatIssue = () => {
   const fetchSubmittedData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/purchase/getHalfProcessData",
+        "https://servers-beit.onrender.com/api/purchase/getHalfProcessData",
         { withCredentials: true }
       );
 
@@ -61,7 +61,7 @@ const HeatIssue = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/sales/add",
+        "https://servers-beit.onrender.com/api/sales/add",
         { lotNumber: selectedLot },
         { withCredentials: true }
       );
@@ -132,7 +132,7 @@ const HeatIssue = () => {
                 </option>
               ))}
             </select>
-          <div className="bg-darkgray mt-4 h-4 w-full overflow-hidden"></div>
+            <div className="bg-darkgray mt-4 h-4 w-full overflow-hidden"></div>
           </div>
         </div>
 
@@ -293,11 +293,10 @@ const HeatIssue = () => {
               <li
                 key={index}
                 onClick={() => paginate(index + 1)}
-                className={`px-3 py-1 mx-1 cursor-pointer ${
-                  currentPage === index + 1
+                className={`px-3 py-1 mx-1 cursor-pointer ${currentPage === index + 1
                     ? "bg-darkgray text-white hover:bg-white hover:text-darkgray hover:border-darkgray outline rounded-md hover:rounded-md "
                     : "bg-gray-300"
-                }`}
+                  }`}
               >
                 {index + 1}
               </li>

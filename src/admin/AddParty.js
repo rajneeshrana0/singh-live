@@ -17,14 +17,14 @@ const PartyTable = () => {
   }, []);
 
   const fetchParties = () => {
-    fetch("http://localhost:4000/api/parties")
+    fetch("https://servers-beit.onrender.com/api/parties")
       .then((response) => response.json())
       .then((data) => setParties(data))
       .catch((error) => console.error("Error fetching parties:", error));
   };
 
   const handleAddParty = () => {
-    fetch("http://localhost:4000/api/parties", {
+    fetch("https://servers-beit.onrender.com/api/parties", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +57,7 @@ const PartyTable = () => {
   };
 
   const handleUpdateParty = () => {
-    fetch(`http://localhost:4000/api/parties/${editPartyId}`, {
+    fetch(`https://servers-beit.onrender.com/api/parties/${editPartyId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -94,7 +94,7 @@ const PartyTable = () => {
   };
 
   const handleConfirmDelete = () => {
-    fetch(`http://localhost:4000/api/parties/${deletePartyId}`, {
+    fetch(`https://servers-beit.onrender.com/api/parties/${deletePartyId}`, {
       method: "DELETE",
     })
       .then((response) => {

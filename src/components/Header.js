@@ -51,7 +51,7 @@ export default function Header() {
   };
   const handleSignOut = async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/logout", {
+      const response = await fetch("https://servers-beit.onrender.com/api/logout", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

@@ -15,7 +15,7 @@ const Dropdown = () => {
   const [meter, setMeter] = useState("");
   const [roll, setRoll] = useState("");
   const [lotNumber, setLotNumber] = useState("");
-  const [partyName, setPartyName]= useState("");
+  const [partyName, setPartyName] = useState("");
 
   const options = ["Rajneesh Rana", "Liza Ahuja", "Nitish Kumar"];
   const toggleDropdown = () => {
@@ -42,7 +42,7 @@ const Dropdown = () => {
         return;
       }
       const response = await axios.post(
-        "http://localhost:4000/api/product/add",
+        "https://servers-beit.onrender.com/api/product/add",
         {
           selectedOption,
           challanNumber,
@@ -79,7 +79,7 @@ const Dropdown = () => {
     <>
       <ToastContainer />
       <div className="font-login text-3xl ml-16 font-semibold">
-      Preview
+        Preview
       </div>
       <div className="flex flex-col items-center overflow-hidden  ">
         <div className="form-data-start w-full max-w-md mt-2 text-3xl  ">
@@ -101,7 +101,7 @@ const Dropdown = () => {
 
 
               </div>
-                <div className="bg-darkgray h-4 w-full overflow-hidden "></div>
+              <div className="bg-darkgray h-4 w-full overflow-hidden "></div>
             </div>
 
 
@@ -229,25 +229,25 @@ const Dropdown = () => {
                 Quality
               </label>
               <div className="flex">
-              <div>
-              <input
-                type="text"
-                id="quantity"
-                name="quantity"
-                className=" mt-4 block mb-4 ml-4 w-[300px] rounded-xs shadow-black shadow-sm border-gray-300 rounded-xs focus:ring-darkgray focus:border-darkgray sm:text-sm placeholder:font-login text-[24px]"
-                placeholder="Your answer"
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
-              /> 
-              </div>
-              <div>
-              <button
-                className="mt-4 ml-8 bg-darkgray hover:bg-white text-white hover:text-darkgray hover:border-darkgray outline hover:outline-2 text-lg px-4 py-1 rounded-md"
-              // onClick={() => handleAddButtonClick(dataItem)}
-              >
-                Add
-              </button>
-              </div>
+                <div>
+                  <input
+                    type="text"
+                    id="quantity"
+                    name="quantity"
+                    className=" mt-4 block mb-4 ml-4 w-[300px] rounded-xs shadow-black shadow-sm border-gray-300 rounded-xs focus:ring-darkgray focus:border-darkgray sm:text-sm placeholder:font-login text-[24px]"
+                    placeholder="Your answer"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <button
+                    className="mt-4 ml-8 bg-darkgray hover:bg-white text-white hover:text-darkgray hover:border-darkgray outline hover:outline-2 text-lg px-4 py-1 rounded-md"
+                  // onClick={() => handleAddButtonClick(dataItem)}
+                  >
+                    Add
+                  </button>
+                </div>
               </div>
               <div className="bg-darkgray h-4 w-full "></div>
             </div>
