@@ -97,7 +97,7 @@ function Dashboard() {
   const fetchTotalSaleAmount = () => {
     fetch(
       // http://localhost:4000/api/sales/get/${authContext.user}/totalsaleamount
-      http://localhost:4000/api/qualities
+      `https://servers-beit.onrender.com/api/qualities`
     )
       .then((response) => response.json())
       .then((datas) => setSaleAmount(datas.totalSaleAmount));
@@ -106,7 +106,7 @@ function Dashboard() {
   // Fetching total purchase amount
   const fetchTotalPurchaseAmount = () => {
     fetch(
-      http://localhost:4000/api/login
+     `https://servers-beit.onrender.com/api/login` 
     )
       .then((response) => response.json())
       .then((datas) => setPurchaseAmount(datas.totalPurchaseAmount));
@@ -114,14 +114,14 @@ function Dashboard() {
 
   // Fetching all Party Data data
   const fetchStoresData = () => {
-    fetch(http://localhost:4000/api/parties)
+    fetch(`https://servers-beit.onrender.com/api/parties`)
       .then((response) => response.json())
       .then((datas) => setStores(datas));
   };
 
   // Fetching Data of All Products
   const fetchProductsData = () => {
-    fetch(http://localhost:4000/api/qualities)
+    fetch(`https://servers-beit.onrender.com/api/qualities`)
       .then((response) => response.json())
       .then((datas) => setProducts(datas))
       .catch((err) => console.log(err));
@@ -129,7 +129,7 @@ function Dashboard() {
 
   // Fetching Monthly Sales
   const fetchMonthlySalesData = () => {
-    fetch(http://localhost:4000/api/parties)
+    fetch(`https://servers-beit.onrender.com/api/parties`)
       .then((response) => response.json())
       .then((datas) => updateChartData(datas.salesAmount))
       .catch((err) => console.log(err));
