@@ -96,8 +96,8 @@ function Dashboard() {
   // Fetching total Quality
   const fetchTotalSaleAmount = () => {
     fetch(
-      // `https://servers-beit.onrender.com/api/sales/get/${authContext.user}/totalsaleamount`
-      `https://servers-beit.onrender.com/api/qualities`
+      // http://localhost:4000/api/sales/get/${authContext.user}/totalsaleamount
+      http://localhost:4000/api/qualities
     )
       .then((response) => response.json())
       .then((datas) => setSaleAmount(datas.totalSaleAmount));
@@ -106,7 +106,7 @@ function Dashboard() {
   // Fetching total purchase amount
   const fetchTotalPurchaseAmount = () => {
     fetch(
-      `https://servers-beit.onrender.com/api/login`
+      http://localhost:4000/api/login
     )
       .then((response) => response.json())
       .then((datas) => setPurchaseAmount(datas.totalPurchaseAmount));
@@ -114,14 +114,14 @@ function Dashboard() {
 
   // Fetching all Party Data data
   const fetchStoresData = () => {
-    fetch(`https://servers-beit.onrender.com/api/parties`)
+    fetch(http://localhost:4000/api/parties)
       .then((response) => response.json())
       .then((datas) => setStores(datas));
   };
 
   // Fetching Data of All Products
   const fetchProductsData = () => {
-    fetch(`https://servers-beit.onrender.com/api/qualities`)
+    fetch(http://localhost:4000/api/qualities)
       .then((response) => response.json())
       .then((datas) => setProducts(datas))
       .catch((err) => console.log(err));
@@ -129,7 +129,7 @@ function Dashboard() {
 
   // Fetching Monthly Sales
   const fetchMonthlySalesData = () => {
-    fetch(`https://servers-beit.onrender.com/api/parties`)
+    fetch(http://localhost:4000/api/parties)
       .then((response) => response.json())
       .then((datas) => updateChartData(datas.salesAmount))
       .catch((err) => console.log(err));
@@ -208,7 +208,7 @@ function Dashboard() {
             </p>
           </div>
         </article>
-        <article className="flex flex-col   gap-4 rounded-lg border border-gray-100 bg-white p-6 ">
+        <article className="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white p-6 ">
           <div className="inline-flex gap-2 self-end rounded bg-red-100 p-1 text-red-600">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -276,16 +276,17 @@ function Dashboard() {
             </p>
           </div>
         </article>
-        <div className="flex justify-around bg-white rounded-lg py-8 col-span-full">
-          <div>
+        
+        <div className="flex flex-col lg:flex-row lg:justify-around bg-white rounded-lg py-8 col-span-full ">
+          <div className="" >
             <Chart
               options={chart.options}
               series={chart.series}
               type="bar"
-              width="500"
+              width="420"
             />
           </div>
-          <div>
+          <div className="lg:mt-0 mt-5 ml-8 lg:ml-0">
             <Doughnut data={data} />
           </div>
         </div>
